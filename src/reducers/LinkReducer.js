@@ -1,7 +1,8 @@
-import { LINK_CREATE } from '../actions/LinkActions';
+import { LINK_CREATE, LINK_LIST } from '../actions/LinkActions';
 
 const initalState = {
   link: null,
+  links: [],
 };
 
 export default function (state = initalState, action) {
@@ -11,6 +12,11 @@ export default function (state = initalState, action) {
       const response = payload ? payload.data : null;
       const link = response ? response.data : null;
       return { ...state, link };
+    }
+    case LINK_LIST: {
+      const response = payload ? payload.data : null;
+      const links = response ? response.data : null;
+      return { ...state, links };
     }
     default: {
       return state;
