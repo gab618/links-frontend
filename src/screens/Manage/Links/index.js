@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Link } from 'react-router-dom';
 import { linkList } from '../../../actions/LinkActions';
 
 import Layout from '../../Layouts/Manage/index';
@@ -9,7 +9,7 @@ import Layout from '../../Layouts/Manage/index';
 function Links({ links, linkList }) {
   useEffect(() => {
     linkList();
-  }, []);
+  }, [linkList]);
 
   return (
     <Layout>
@@ -38,7 +38,9 @@ function Links({ links, linkList }) {
                 <span className="text-primary clearfix">{l.url}</span>
               </div>
               <div className="ml-auto p-2 clearfix">
-                <span>Edit</span>
+                <Link to={`/manage/links/edit/${l.id}`}>
+                  <span>Edit</span>
+                </Link>
                 <span>Delete</span>
               </div>
             </div>

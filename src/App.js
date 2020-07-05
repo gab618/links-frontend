@@ -31,7 +31,7 @@ const App = ({ initAccount }) => {
               <Link to="/manage/links/create">Create Link</Link>
             </li>
             <li className="list-group-item">
-              <Link to="/manage/links/edit">Edit Link</Link>
+              <Link to="/manage/links/edit/:id">Edit Link</Link>
             </li>
             <li className="list-group-item">
               <Link to="/manage/links">Links</Link>
@@ -48,7 +48,7 @@ const App = ({ initAccount }) => {
           <Route path="/manage/links/create">
             <ManageLinksCreate />
           </Route>
-          <Route path="/manage/links/edit">
+          <Route path="/manage/links/edit/:id">
             <ManageLinksEdit />
           </Route>
           <Route path="/manage/links">
