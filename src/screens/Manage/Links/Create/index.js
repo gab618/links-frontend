@@ -1,20 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { Redirect } from 'react-router-dom';
+import { getFormData } from '../../../../helpers/form';
+import { linkCreate } from '../../../../actions/LinkActions';
 
 import Layout from '../../../Layouts/Manage';
 
-function Create() {
+function Create({ link, linkCreate }) {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const data = getFormData(e);
+    console.log('*** Create.submitHandler.data ', data);
+    linkCreate(data);
+  };
+
+  if (link) {
+    return <Redirect to="/manage/links" />;
+  }
+
+  console.log('*** Create.link ', link);
+
   return (
     <Layout>
       <h1>Create Link</h1>
       <div>
-        <form action="">
+        <form onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="">Label</label>
-            <input type="text" className="form-control" />
+            <input name="label" type="text" className="form-control" />
           </div>
           <div className="form-group">
-            <label htmlFor="">Url</label>
-            <input type="text" className="form-control" />
+            <label htmlFor="email">Url</label>
+            <input name="url" type="text" className="form-control" />
           </div>
           <div className="form-group form-check">
             <label className="form-check-label">
@@ -24,7 +42,7 @@ function Create() {
             </label>
           </div>
           <div>
-            <button type="button" className="btn btn-primary btn-round">
+            <button type="submit" className="btn btn-primary btn-round">
               Submit
             </button>
           </div>
@@ -34,4 +52,8 @@ function Create() {
   );
 }
 
-export default Create;
+const mapStateToProps = (state) => {
+  return { link: state.link.link };
+};
+
+export default connect(mapStateToProps, { linkCreate })(Create);
