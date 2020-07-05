@@ -11,15 +11,12 @@ function Create({ link, linkCreate }) {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = getFormData(e);
-    console.log('*** Create.submitHandler.data ', data);
     linkCreate(data);
   };
 
   if (link) {
     return <Redirect to="/manage/links" />;
   }
-
-  console.log('*** Create.link ', link);
 
   return (
     <Layout>
