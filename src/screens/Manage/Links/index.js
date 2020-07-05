@@ -26,7 +26,10 @@ function Links({ links, linkList }) {
 
       {links && links.length
         ? links.map((l) => (
-            <div className="pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between">
+            <div
+              key={l.id}
+              className="pb-2 pt-2 pl-3 pr-3 d-flex flex-row justify-content-between"
+            >
               <div className="pr-3">
                 <img src="https://via.placeholder.com/100" alt="Link icon" />
               </div>
