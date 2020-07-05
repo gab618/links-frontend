@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import Layout from "../../Layouts/Manage/index";
+import Layout from '../../Layouts/Manage/index';
 
 function Links() {
   return (

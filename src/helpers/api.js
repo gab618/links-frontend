@@ -12,7 +12,7 @@ export const apiPost = (path, data = {}) => {
   const url = getApiUrl(path);
   const options = {
     headers: getHeaders(),
-  }
+  };
 
   return axios.post(url, data, options);
-}
+};

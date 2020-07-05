@@ -19,12 +19,14 @@ function Create() {
           <div className="form-group form-check">
             <label className="form-check-label">
               <input type="checkbox" name="isSocial" />
-              <span className="form-check-sign"></span>
+              <span className="form-check-sign" />
               Is Social
             </label>
           </div>
           <div>
-            <button className="btn btn-primary btn-round">Submit</button>
+            <button type="button" className="btn btn-primary btn-round">
+              Submit
+            </button>
           </div>
         </form>
       </div>

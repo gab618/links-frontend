@@ -14,11 +14,21 @@ const App = () => {
       <div>
         <nav>
           <ul className="list-group list-group-horizontal">
-            <li className="list-group-item"><Link to="/sign-in">Sign in</Link></li>
-            <li className="list-group-item"><Link to="/sign-up">Sign up</Link></li>
-            <li className="list-group-item"><Link to="/manage/links/create">Create Link</Link></li>
-            <li className="list-group-item"><Link to="/manage/links/edit">Edit Link</Link></li>
-            <li className="list-group-item"><Link to="/manage/links">Links</Link></li>
+            <li className="list-group-item">
+              <Link to="/sign-in">Sign in</Link>
+            </li>
+            <li className="list-group-item">
+              <Link to="/sign-up">Sign up</Link>
+            </li>
+            <li className="list-group-item">
+              <Link to="/manage/links/create">Create Link</Link>
+            </li>
+            <li className="list-group-item">
+              <Link to="/manage/links/edit">Edit Link</Link>
+            </li>
+            <li className="list-group-item">
+              <Link to="/manage/links">Links</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -43,7 +53,7 @@ const App = () => {
         </Switch>
       </div>
     </BrowserRouter>
-    );
-}
+  );
+};
 
 export default App;

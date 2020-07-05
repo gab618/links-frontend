@@ -3,17 +3,16 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signUp } from './SignUpActions';
 
-function SignUp({signUp, account}) {
-
+function SignUp({ signUp, account }) {
   const submitHandler = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     signUp(data);
-  }
+  };
 
   if (account) {
-    return <Redirect to="/manage/links" />
+    return <Redirect to="/manage/links" />;
   }
 
   return (
@@ -31,10 +30,16 @@ function SignUp({signUp, account}) {
           </div>
           <div className="form-group">
             <label htmlFor="">Password Confirmation</label>
-            <input type="password" className="form-control" name="password_confirmation" />
+            <input
+              type="password"
+              className="form-control"
+              name="password_confirmation"
+            />
           </div>
           <div>
-            <button className="btn btn-primary btn-round">Submit</button>
+            <button type="submit" className="btn btn-primary btn-round">
+              Submit
+            </button>
           </div>
         </form>
         <div className="container text-center fixed-bottom pb-5">
@@ -47,8 +52,7 @@ function SignUp({signUp, account}) {
 }
 
 const mapStateToProps = (state) => {
-  return { account: state.signUp.account }
+  return { account: state.signUp.account };
 };
 
-export default connect(mapStateToProps, {signUp})(SignUp);
-
+export default connect(mapStateToProps, { signUp })(SignUp);

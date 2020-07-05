@@ -3,8 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signIn } from './SignInActions';
 
-function SignIn({account, signIn}) {
-
+function SignIn({ account, signIn }) {
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -14,7 +13,7 @@ function SignIn({account, signIn}) {
   };
 
   if (account) {
-    return <Redirect to="/manage/links" />
+    return <Redirect to="/manage/links" />;
   }
 
   return (
@@ -31,7 +30,9 @@ function SignIn({account, signIn}) {
             <input type="password" className="form-control" name="password" />
           </div>
           <div>
-            <button className="btn btn-primary btn-round">Submit</button>
+            <button type="submit" className="btn btn-primary btn-round">
+              Submit
+            </button>
           </div>
         </form>
         <div className="container text-center fixed-bottom pb-5">
@@ -44,7 +45,7 @@ function SignIn({account, signIn}) {
 }
 
 const mapStateToProps = (state) => {
-  return { account: state.signIn.account }
+  return { account: state.signIn.account };
 };
 
-export default connect(mapStateToProps, {signIn})(SignIn);
+export default connect(mapStateToProps, { signIn })(SignIn);
